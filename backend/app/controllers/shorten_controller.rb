@@ -1,14 +1,8 @@
 class ShortenController < ApplicationController
   def create
-    short = Short::UrlShortener.new.shorten(url)
-    
-    if short
-      Link.create(original: url, short: short)
-    else
-     short = Link.find_by(original: url).try(:short)
-    end
+    link = Link.create_uniq(url)
 
-    render json: { short: short }
+    render json: { short: link.short }
   end
 
   private
