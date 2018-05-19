@@ -5,9 +5,9 @@ class Shorten extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { 
+    this.state = {
       original: null,
-      short: null
+      short: null,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -19,7 +19,7 @@ class Shorten extends Component {
   }
 
   handleSubmit(event) {
-    axios.post('http://localhost:3000/shorten', { url: this.state.original} ).then(response => {
+    axios.post('http://localhost:3000/shorten', { url: this.state.original }).then((response) => {
       this.setState({ short: response.data.short });
     });
     event.preventDefault();
@@ -28,24 +28,24 @@ class Shorten extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={ this.handleSubmit }>
+        <form onSubmit={this.handleSubmit}>
           <label>
             Link:
-            <input 
-              type="text" 
-              name="original" 
-              value={ this.state.value }
-              onChange= { this.handleChange }
+            <input
+              type="url"
+              name="original"
+              value={this.state.value}
+              onChange={this.handleChange}
             />
           </label>
 
-        <input 
-          type="submit" 
-          value="Shorten" 
+          <input
+          type="submit"
+          value="Shorten"
         />
         </form>
 
-        { this.state.short ? <p>The shortened URL is: <a href={ window.location + this.state.short }>{ window.location + this.state.short }</a></p> : null }
+        { this.state.short ? <p>The shortened URL is: <a href={window.location + this.state.short}>{ window.location + this.state.short }</a></p> : null }
       </div>
     );
   }

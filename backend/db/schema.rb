@@ -10,21 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_16_151742) do
-
-  create_table "click_details", force: :cascade do |t|
-    t.integer "click_id", null: false
-    t.string "device", null: false
-    t.string "ip", null: false
-    t.string "ua"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["click_id"], name: "index_click_details_on_click_id"
-  end
+ActiveRecord::Schema.define(version: 2018_05_16_151648) do
 
   create_table "clicks", force: :cascade do |t|
     t.integer "link_id", null: false
-    t.integer "number"
+    t.string "device", null: false
+    t.string "ip", null: false
+    t.string "ua"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["link_id"], name: "index_clicks_on_link_id"
