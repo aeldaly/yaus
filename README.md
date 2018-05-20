@@ -3,7 +3,7 @@
 ## Starting the app
 
 ### Server
-1. cd server
+1. cd backend
 2. rake db:create
 3. rake db:migrate
 4. rails s

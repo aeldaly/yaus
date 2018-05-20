@@ -1,4 +1,6 @@
-links = Link.all.map(&:original)
+if ActiveRecord::Base.connection.table_exists?('links')
+  links = Link.all.map(&:original)
 
-Short::BloomFilter.instance.seed(links)
+  Short::BloomFilter.instance.seed(links)
+end
 

@@ -1,5 +1,7 @@
 table {
   padding: 25px;
+  margin: 0 auto;
+  border-spacing: 0px;
 }
 
 td, th {
