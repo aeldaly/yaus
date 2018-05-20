@@ -20,6 +20,7 @@ class LinksController < ApplicationController
       {
         id: click.id,
         original: link.original,
+        ip: click.ip,
         device: click.device,
         ua: click.ua,
         created_at: click.created_at

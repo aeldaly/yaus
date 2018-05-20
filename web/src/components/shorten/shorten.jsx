@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import './shorten.css';
+
 class Shorten extends Component {
   constructor(props) {
     super(props);
@@ -27,25 +29,31 @@ class Shorten extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <form onSubmit={this.handleSubmit}>
           <label>
             Link:
             <input
               type="url"
               name="original"
+              className="text"
               value={this.state.value}
               onChange={this.handleChange}
             />
           </label>
 
           <input
-          type="submit"
-          value="Shorten"
-        />
+            type="submit"
+            value="Shorten"
+            className="submit"
+          />
         </form>
 
-        { this.state.short ? <p>The shortened URL is: <a href={window.location + this.state.short}>{ window.location + this.state.short }</a></p> : null }
+        {
+          this.state.short ? 
+            <div className="result">The shortened URL is: <a href={window.location + this.state.short}>{ window.location + this.state.short }</a></div>
+          : null
+        }
       </div>
     );
   }
